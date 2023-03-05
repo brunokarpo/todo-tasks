@@ -8,3 +8,5 @@ _clean:
 _build: _clean
 	./mvnw install
 
+.PHONY: build
+build: _clean _build
