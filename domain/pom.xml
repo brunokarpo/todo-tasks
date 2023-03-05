@@ -10,10 +10,10 @@
     </parent>
 
     <groupId>nom.brunokarpo.todotasks</groupId>
-    <artifactId>business</artifactId>
+    <artifactId>domain</artifactId>
     <packaging>jar</packaging>
 
-    <name>nom.brunokarpo.todotasks business</name>
+    <name>nom.brunokarpo.todotasks model</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
