@@ -20,6 +20,7 @@
         <kotlin.version>1.8.20-Beta</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
         <junit-jupiter.version>5.9.2</junit-jupiter.version>
+        <mockk.version>1.13.4</mockk.version>
     </properties>
 
     <dependencyManagement>
@@ -48,6 +49,12 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.mockk</groupId>
+            <artifactId>mockk-jvm</artifactId>
+            <version>${mockk.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
