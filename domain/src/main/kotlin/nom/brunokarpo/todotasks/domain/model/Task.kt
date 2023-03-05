@@ -1,4 +1,4 @@
-package nom.brunokarpo.todotasks.model
+package nom.brunokarpo.todotasks.domain.model
 
 import java.time.LocalDateTime
 import java.util.UUID
@@ -8,6 +8,6 @@ data class Task(
     val title: String,
     val description: String,
     val dueDate: LocalDateTime,
-    val status: TaskStatus,
+    val status: TaskStatus = TaskStatus.BACKLOG,
     val user: User
 )

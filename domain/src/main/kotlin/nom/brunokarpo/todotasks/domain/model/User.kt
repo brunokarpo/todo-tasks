@@ -1,4 +1,4 @@
-package nom.brunokarpo.todotasks.model
+package nom.brunokarpo.todotasks.domain.model
 
 import java.util.*
 
