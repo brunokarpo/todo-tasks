@@ -18,6 +18,7 @@
     <modules>
         <module>postgres</module>
         <module>startup</module>
+        <module>api</module>
     </modules>
 
     <properties>
