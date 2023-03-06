@@ -1,0 +1,4 @@
+flyway.url=jdbc:postgresql://localhost:5432/tasks-postgres
+flyway.user=tasks-postgres
+flyway.password=tasks-postgres
+flyway.schemas=tasks-postgres
