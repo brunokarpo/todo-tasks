@@ -1,6 +1,6 @@
 package nom.brunokarpo.todotasks.domain.model
 
-import java.util.*
+import java.util.UUID
 
 data class User(
     val id: UUID = UUID.randomUUID(),

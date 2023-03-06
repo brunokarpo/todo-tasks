@@ -1,7 +1,6 @@
 package nom.brunokarpo.todotasks.domain.service
 
 import nom.brunokarpo.todotasks.domain.model.Task
-import nom.brunokarpo.todotasks.domain.model.TaskStatus
 import nom.brunokarpo.todotasks.domain.repository.TaskRepository
 import nom.brunokarpo.todotasks.domain.repository.filter.TaskSearchFilter
 import nom.brunokarpo.todotasks.domain.service.requests.TaskCreationRequest

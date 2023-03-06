@@ -1,16 +1,16 @@
 package nom.brunokarpo.todotasks.domain.service
 
-import io.mockk.*
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.slot
+import io.mockk.verify
 import nom.brunokarpo.todotasks.domain.fixture.TaskCreationRequestFixture
 import nom.brunokarpo.todotasks.domain.fixture.TaskFixture
-import nom.brunokarpo.todotasks.domain.fixture.TaskSearchRequestFixture
 import nom.brunokarpo.todotasks.domain.fixture.UserFixture
 import nom.brunokarpo.todotasks.domain.model.Task
 import nom.brunokarpo.todotasks.domain.repository.TaskRepository
-import nom.brunokarpo.todotasks.domain.repository.filter.TaskSearchFilter
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import java.util.*
 import kotlin.test.assertEquals
 
 class TaskServiceTest {
@@ -24,7 +24,7 @@ class TaskServiceTest {
     private val taskRepositoryMock = mockk<TaskRepository>() {
         every {
             save(any())
-        } just Runs
+        } returns TaskFixture.createSimpleTask()
     }
 
     private lateinit var sut: TaskService
@@ -47,7 +47,7 @@ class TaskServiceTest {
         val taskSlot = slot<Task>()
         every {
             taskRepositoryMock.save(capture(taskSlot))
-        } just Runs
+        } returns TaskFixture.createSimpleTask()
 
         val user = UserFixture.createSimpleUser()
         every {

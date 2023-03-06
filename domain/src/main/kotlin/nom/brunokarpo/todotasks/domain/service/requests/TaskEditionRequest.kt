@@ -1,7 +1,7 @@
 package nom.brunokarpo.todotasks.domain.service.requests
 
 import nom.brunokarpo.todotasks.domain.model.TaskStatus
-import java.util.*
+import java.util.UUID
 
 data class TaskEditionRequest(
     val id: UUID,

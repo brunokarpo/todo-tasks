@@ -3,7 +3,6 @@ package nom.brunokarpo.todotasks.domain.service.requests
 import nom.brunokarpo.todotasks.domain.model.Task
 import nom.brunokarpo.todotasks.domain.model.TaskStatus
 import nom.brunokarpo.todotasks.domain.model.User
-import nom.brunokarpo.todotasks.domain.service.UserProvider
 import java.time.LocalDateTime
 
 data class TaskCreationRequest(
