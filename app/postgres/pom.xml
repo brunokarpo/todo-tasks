@@ -25,6 +25,11 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>nom.brunokarpo.todotasks</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

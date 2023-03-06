@@ -24,6 +24,8 @@
         <java.version>17</java.version>
         <kotlin.version>1.7.22</kotlin.version>
         <kotlin-reflect.version>1.8.0</kotlin-reflect.version>
+        <maven-failsafe-plugin.version>3.0.0-M9</maven-failsafe-plugin.version>
+        <skip.integration.tests>true</skip.integration.tests>
     </properties>
 
     <dependencyManagement>
@@ -77,7 +79,35 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven-failsafe-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includes>
+                        <include>**/*IT.class</include>
+                    </includes>
+                    <testSourceDirectory>src/it/kotlin</testSourceDirectory>
+                    <skipTests>${skip.integration.tests}</skipTests>
+                </configuration>
+            </plugin>
         </plugins>
+
+        <testResources>
+            <testResource>
+                <directory>src/it/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
     </build>
 
 </project>
