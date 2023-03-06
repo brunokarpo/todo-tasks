@@ -2,11 +2,15 @@ package nom.brunokarpo.todotasks.domain.service
 
 import io.mockk.*
 import nom.brunokarpo.todotasks.domain.fixture.TaskCreationRequestFixture
+import nom.brunokarpo.todotasks.domain.fixture.TaskFixture
+import nom.brunokarpo.todotasks.domain.fixture.TaskSearchRequestFixture
 import nom.brunokarpo.todotasks.domain.fixture.UserFixture
 import nom.brunokarpo.todotasks.domain.model.Task
 import nom.brunokarpo.todotasks.domain.repository.TaskRepository
+import nom.brunokarpo.todotasks.domain.repository.filter.TaskSearchFilter
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import java.util.*
 import kotlin.test.assertEquals
 
 class TaskServiceTest {

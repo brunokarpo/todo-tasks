@@ -10,15 +10,15 @@ This system will be a web application that allows users to create and manage tas
 
     Login: The system should allow users to log in using their username and password.
 
-    Task creation: The system should allow users to create tasks, with a title, description, due date, and status.
+    - Task creation: The system should allow users to create tasks, with a title, description, due date, and status.
 
-    Task editing: The system should allow users to edit the information of existing tasks.
+    - Task editing: The system should allow users to edit the information of existing tasks.
 
-    Task deletion: The system should allow users to delete existing tasks.
+    - Task deletion: The system should allow users to delete existing tasks.
 
-    Task listing: The system should allow users to see a list of all existing tasks, filtering them by status (completed, pending, overdue).
+    - Task listing: The system should allow users to see a list of all existing tasks, filtering them by status (completed, pending, overdue).
 
-    Task searching: The system should allow users to search for tasks by title or description.
+    - Task searching: The system should allow users to search for tasks by title or description (for id too).
 
     Notifications: The system should send notifications to users when a task is nearing its due date or is overdue.
 
