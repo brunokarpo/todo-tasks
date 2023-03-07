@@ -19,6 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.8.20-Beta</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
+        <java.version>17</java.version>
     </properties>
 
     <build>

@@ -9,6 +9,7 @@
     </parent>
 
     <artifactId>postgres</artifactId>
+    <name>nom.brunokarpo.todotasks postgres</name>
     <packaging>jar</packaging>
 
     <dependencies>

@@ -10,3 +10,19 @@ _build: _clean
 
 .PHONY: build
 build: _clean _build
+
+#########################################
+### INFRA
+
+### Database
+
+.PHONY: _db-start
+_db-start:
+	$(MAKE) -C infra/db start
+
+.PHONY: _db-migrate
+_db-migrate:
+	$(MAKE) -C infra/db migrate
+
+.PHONY: db-initialize
+db-initialize: _db-start _db-migrate
