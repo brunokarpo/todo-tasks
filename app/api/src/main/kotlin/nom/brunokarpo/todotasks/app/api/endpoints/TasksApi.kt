@@ -1,7 +1,9 @@
 package nom.brunokarpo.todotasks.app.api.endpoints
 
 import nom.brunokarpo.todotasks.app.api.dto.TaskDTO
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -10,5 +12,5 @@ import org.springframework.web.bind.annotation.RestController
 interface TasksApi {
 
     @PostMapping
-    fun create(dto: TaskDTO): TaskDTO
+    fun create(@RequestBody dto: TaskDTO): ResponseEntity<TaskDTO>
 }

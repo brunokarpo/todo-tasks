@@ -1,0 +1,11 @@
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{
+  "title": "Simple task 1",
+  "description": "Simple task description 1",
+  "dueDate": "2023-05-01T09:18:27Z",
+  "status": "TODO"
+}
+
+###
