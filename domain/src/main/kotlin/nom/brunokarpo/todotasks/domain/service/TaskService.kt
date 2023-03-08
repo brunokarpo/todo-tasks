@@ -6,6 +6,7 @@ import nom.brunokarpo.todotasks.domain.repository.filter.TaskSearchFilter
 import nom.brunokarpo.todotasks.domain.service.requests.TaskCreationRequest
 import nom.brunokarpo.todotasks.domain.service.requests.TaskEditionRequest
 import nom.brunokarpo.todotasks.domain.service.requests.TaskSearchRequest
+import java.util.UUID
 
 class TaskService(
     private val taskRepository: TaskRepository,
@@ -24,6 +25,11 @@ class TaskService(
     fun edit(taskEditionRequest: TaskEditionRequest): Task? {
         val sessionUser = userProvider.getUserFromSession()
         return taskRepository.update(taskEditionRequest, sessionUser)
+    }
+
+    fun remove(taskId: UUID): Boolean {
+        val sessionUser = userProvider.getUserFromSession()
+        return taskRepository.delete(taskId, sessionUser)
     }
 
 }
