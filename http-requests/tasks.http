@@ -10,5 +10,16 @@ Content-Type: application/json
 }
 
 ### Filtering task. Could receive parameters id, title, description, and status
-GET http://localhost:8080/tasks
+GET http://localhost:8080/tasks?id=089cd1cf-6d36-4e5f-9f0e-f5a5b5d5b1c5
 Accept: application/json
+
+### Update existent task
+PUT http://localhost:8080/tasks/089cd1cf-6d36-4e5f-9f0e-f5a5b5d5b1c5
+Content-Type: application/json
+
+{
+  "title": "Ler um capitulo do livro Hobbit",
+  "description": "Ler o capítulo 5 do livro \"O Hobbit\"",
+  "dueDate": "2023-12-25T10:30:00Z",
+  "status": "IN_PROGRESS"
+}

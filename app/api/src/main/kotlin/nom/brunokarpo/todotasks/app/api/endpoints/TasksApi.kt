@@ -2,8 +2,11 @@ package nom.brunokarpo.todotasks.app.api.endpoints
 
 import nom.brunokarpo.todotasks.app.api.dto.TaskDTO
 import org.springframework.http.ResponseEntity
+import org.springframework.scheduling.config.Task
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -28,4 +31,10 @@ interface TasksApi {
         @RequestParam(required = false) description: String?,
         @RequestParam(required = false) status: String?
     ): ResponseEntity<List<TaskDTO>>
+
+    @PutMapping("/{id}")
+    fun update(
+        @PathVariable id: UUID,
+        @RequestBody dto: TaskDTO
+    ): ResponseEntity<TaskDTO>
 }

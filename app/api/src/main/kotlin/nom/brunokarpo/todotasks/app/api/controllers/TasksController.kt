@@ -4,6 +4,7 @@ import nom.brunokarpo.todotasks.app.api.dto.TaskDTO
 import nom.brunokarpo.todotasks.app.api.endpoints.TasksApi
 import nom.brunokarpo.todotasks.domain.model.TaskStatus
 import nom.brunokarpo.todotasks.domain.service.TaskService
+import nom.brunokarpo.todotasks.domain.service.requests.TaskEditionRequest
 import nom.brunokarpo.todotasks.domain.service.requests.TaskSearchRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Component
@@ -37,5 +38,18 @@ class TasksController(
                 TaskDTO(it)
             }
         )
+    }
+
+    override fun update(id: UUID, dto: TaskDTO): ResponseEntity<TaskDTO> {
+        val result = taskService.edit(TaskEditionRequest(
+            id = id,
+            title = dto.title,
+            description = dto.description,
+            status = dto.status?.toTaskStatus(),
+            dueDate = dto.dueDate
+        ))
+        return result?.let {
+            ResponseEntity.ok(TaskDTO(it))
+        } ?: ResponseEntity.notFound().build()
     }
 }
