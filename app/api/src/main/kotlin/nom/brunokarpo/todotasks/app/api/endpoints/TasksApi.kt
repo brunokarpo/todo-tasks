@@ -3,6 +3,7 @@ package nom.brunokarpo.todotasks.app.api.endpoints
 import nom.brunokarpo.todotasks.app.api.dto.TaskDTO
 import org.springframework.http.ResponseEntity
 import org.springframework.scheduling.config.Task
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -37,4 +38,7 @@ interface TasksApi {
         @PathVariable id: UUID,
         @RequestBody dto: TaskDTO
     ): ResponseEntity<TaskDTO>
+
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable id: UUID): ResponseEntity<Void>
 }

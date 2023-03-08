@@ -52,4 +52,11 @@ class TasksController(
             ResponseEntity.ok(TaskDTO(it))
         } ?: ResponseEntity.notFound().build()
     }
+
+    override fun delete(id: UUID): ResponseEntity<Void> {
+        return if (taskService.remove(id))
+            ResponseEntity.accepted().build()
+        else
+            ResponseEntity.badRequest().build()
+    }
 }

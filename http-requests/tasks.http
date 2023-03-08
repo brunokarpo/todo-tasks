@@ -1,6 +1,7 @@
 ### Create new task
 POST http://localhost:8080/tasks
 Content-Type: application/json
+Accept: application/json
 
 {
   "title": "Simple task 1",
@@ -10,12 +11,13 @@ Content-Type: application/json
 }
 
 ### Filtering task. Could receive parameters id, title, description, and status
-GET http://localhost:8080/tasks?id=089cd1cf-6d36-4e5f-9f0e-f5a5b5d5b1c5
+GET http://localhost:8080/tasks?id=7999d08c-a517-4279-b233-d25a1e0b407c
 Accept: application/json
 
 ### Update existent task
-PUT http://localhost:8080/tasks/089cd1cf-6d36-4e5f-9f0e-f5a5b5d5b1c5
+PUT http://localhost:8080/tasks/7999d08c-a517-4279-b233-d25a1e0b407c
 Content-Type: application/json
+Accept: application/json
 
 {
   "title": "Ler um capitulo do livro Hobbit",
@@ -23,3 +25,6 @@ Content-Type: application/json
   "dueDate": "2023-12-25T10:30:00Z",
   "status": "IN_PROGRESS"
 }
+
+### Remove task
+DELETE http://localhost:8080/tasks/7999d08c-a517-4279-b233-d25a1e0b407c
