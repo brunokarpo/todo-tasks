@@ -1,3 +1,4 @@
+### Create new task
 POST http://localhost:8080/tasks
 Content-Type: application/json
 
@@ -8,4 +9,6 @@ Content-Type: application/json
   "status": "TODO"
 }
 
-###
+### Filtering task. Could receive parameters id, title, description, and status
+GET http://localhost:8080/tasks
+Accept: application/json

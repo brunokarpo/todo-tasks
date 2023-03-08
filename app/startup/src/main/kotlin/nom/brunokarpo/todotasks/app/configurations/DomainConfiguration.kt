@@ -20,7 +20,7 @@ class DomainConfiguration {
     fun userProvider(): UserProvider = object: UserProvider {
         override fun getUserFromSession(): User {
             return User(
-                id = UUID.fromString("c3607c49-08af-46b4-897b-bb54ecb2c161"),
+                id = UUID.fromString("c1f0018e-cc53-49b1-a1b9-9bb8a017d2e2"),
                 name = "Dummy User",
                 email = "dummy@email"
             )
