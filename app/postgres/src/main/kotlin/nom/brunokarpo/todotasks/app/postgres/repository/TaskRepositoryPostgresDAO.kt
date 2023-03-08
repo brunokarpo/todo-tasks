@@ -8,6 +8,7 @@ import nom.brunokarpo.todotasks.domain.repository.filter.TaskSearchFilter
 import nom.brunokarpo.todotasks.domain.service.requests.TaskEditionRequest
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.stereotype.Repository
+import java.util.UUID
 
 @Repository
 class TaskRepositoryPostgresDAO(
@@ -94,6 +95,19 @@ class TaskRepositoryPostgresDAO(
         params["userId"] = sessionUser.id
 
         return jdbcTemplate.query(sql, params, TaskRowMapper(sessionUser)).firstOrNull()
+    }
 
+    override fun delete(taskId: UUID, sessionUser: User): Boolean {
+        val sql = """
+            delete from tasks
+            where id = :id and user_id = :userId
+        """.trimIndent()
+
+        val params = mapOf(
+            "id" to taskId,
+            "userId" to sessionUser.id
+        )
+
+        return jdbcTemplate.update(sql, params) == 1
     }
 }

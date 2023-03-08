@@ -14,7 +14,9 @@ import org.springframework.test.context.jdbc.SqlGroup
 import java.time.LocalDateTime
 import java.util.UUID
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
 
 @SqlGroup(
     Sql(value = ["/sql/load-tasks.sql"], executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD),
@@ -110,6 +112,19 @@ class TaskRepositoryIT : JdbcDatabaseIT() {
             assertEquals("Ler um capitulo do livro de Mateus", this.description)
             assertEquals(TaskStatus.DONE, this.status)
         }
+    }
 
+    @Test
+    fun `should return true when delete an existent task`() {
+        val user = User(id = UUID.fromString("c1f0018e-cc53-49b1-a1b9-9bb8a017d2e2"), name = "dummy", email = "dummy@email.com")
+
+        assertTrue { sut.delete(UUID.fromString("089cd1cf-6d36-4e5f-9f0e-f5a5b5d5b1c5"), user) }
+    }
+
+    @Test
+    fun `should not delete an existent task from diferent user`() {
+        val user = User(id = UUID.fromString("c1f0018e-cc53-49b1-a1b9-9bb8a017d2e2"), name = "dummy", email = "dummy@email.com")
+
+        assertFalse { sut.delete(UUID.fromString("37a51d7c-35c9-49a1-97de-c9d802a8b45f"), user) }
     }
 }
