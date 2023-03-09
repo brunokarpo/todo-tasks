@@ -11,6 +11,10 @@ _build: _clean
 .PHONY: build
 build: _clean _build
 
+.PHONY: run-locally
+run-locally: build
+	./mvnw spring-boot:run -f app/startup
+
 #########################################
 ### INFRA
 
@@ -20,9 +24,13 @@ build: _clean _build
 _db-start:
 	$(MAKE) -C infra/db start
 
-.PHONY: _db-migrate
-_db-migrate:
+.PHONY: db-migrate
+db-migrate:
 	$(MAKE) -C infra/db migrate
 
 .PHONY: db-initialize
-db-initialize: _db-start _db-migrate
+db-initialize: _db-start db-migrate
+
+.PHONY: db-stop
+db-stop:
+	$(MAKE) -C infra/db stop

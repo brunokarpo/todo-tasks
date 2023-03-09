@@ -1,3 +1,9 @@
+insert into users_identifiers (id) values ('c1f0018e-cc53-49b1-a1b9-9bb8a017d2e2');
+insert into users_data (id, name, email) values ('c1f0018e-cc53-49b1-a1b9-9bb8a017d2e2', 'Alice', 'alice@example.com');
+
+insert into users_identifiers (id) values ('d2b66bc6-56c6-4ef6-b166-3f4aa9651dfc');
+insert into users_data (id, name, email) values ('d2b66bc6-56c6-4ef6-b166-3f4aa9651dfc', 'Bob', 'bob@example.com');
+
 INSERT INTO tasks (id, title, description, due_date, status, user_id) VALUES
     ('c67620e7-9832-4c8b-91ad-6efed7a9aa3a', 'Comprar leite', 'Ir ao supermercado e comprar 1 litro de leite integral', '2023-03-08 10:00:00-03', 'TODO', 'c1f0018e-cc53-49b1-a1b9-9bb8a017d2e2'),
     ('75b1c1d8-d28f-4b35-a09b-9f9bc778008d', 'Fazer exercício', 'Fazer 30 minutos de caminhada no parque', '2023-03-07 18:00:00-03', 'IN_PROGRESS', 'd2b66bc6-56c6-4ef6-b166-3f4aa9651dfc'),

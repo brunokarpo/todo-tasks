@@ -27,6 +27,7 @@
         <kotlin-reflect.version>1.8.0</kotlin-reflect.version>
         <maven-failsafe-plugin.version>3.0.0-M9</maven-failsafe-plugin.version>
         <skip.integration.tests>true</skip.integration.tests>
+        <spring-boot-dependencies.version>3.0.4</spring-boot-dependencies.version>
     </properties>
 
     <dependencyManagement>
@@ -34,7 +35,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.0.4</version>
+                <version>${spring-boot-dependencies.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -70,6 +71,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
