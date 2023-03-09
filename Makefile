@@ -20,12 +20,12 @@ build: _clean _build
 _db-start:
 	$(MAKE) -C infra/db start
 
-.PHONY: _db-migrate
-_db-migrate:
+.PHONY: db-migrate
+db-migrate:
 	$(MAKE) -C infra/db migrate
 
 .PHONY: db-initialize
-db-initialize: _db-start _db-migrate
+db-initialize: _db-start db-migrate
 
 .PHONY: db-stop
 db-stop:

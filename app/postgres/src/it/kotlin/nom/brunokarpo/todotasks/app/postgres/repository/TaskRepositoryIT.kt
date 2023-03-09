@@ -35,6 +35,7 @@ class TaskRepositoryIT : JdbcDatabaseIT() {
             dueDate = LocalDateTime.now().plusDays(5),
             status = TaskStatus.BACKLOG,
             user = User(
+                id = UUID.fromString("d2b66bc6-56c6-4ef6-b166-3f4aa9651dfc"),
                 name = "Dummy user",
                 email = "dummy@email"
             )

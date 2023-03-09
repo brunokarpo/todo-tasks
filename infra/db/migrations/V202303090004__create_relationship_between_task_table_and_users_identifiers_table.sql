@@ -1,0 +1,1 @@
+alter table tasks add constraint fk_user_id_users_identifiers_id foreign key (user_id) references users_identifiers(id);
