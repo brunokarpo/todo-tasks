@@ -11,7 +11,33 @@ class UserRepositoryPostgresDAO(
     private val jdbcTemplate: NamedParameterJdbcTemplate
 ): UserRepository {
     override fun create(user: User): User {
-        TODO("Not yet implemented")
+        insertUserIdentifier(user)
+        insertUserData(user)
+        return user
+    }
+
+    private fun insertUserIdentifier(user: User) {
+        val sqlIdentifiers = """
+                insert into users_identifiers (id)
+                values (:id)
+            """.trimIndent()
+        val paramsIdentifiers = mapOf<String, Any>(
+            "id" to user.id
+        )
+        jdbcTemplate.update(sqlIdentifiers, paramsIdentifiers)
+    }
+
+    private fun insertUserData(user: User) {
+        val sqlData = """
+                insert into users_data (id, name, email)
+                values (:id, :name, :email)
+            """.trimIndent()
+        val paramsData = mapOf(
+            "id" to user.id,
+            "name" to user.name,
+            "email" to user.email
+        )
+        jdbcTemplate.update(sqlData, paramsData)
     }
 
     override fun findByEmail(email: String): User? {
