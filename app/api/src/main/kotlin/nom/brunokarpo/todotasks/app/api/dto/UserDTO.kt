@@ -6,8 +6,8 @@ import java.util.UUID
 
 data class UserDTO(
     val id: UUID? = null,
-    val name: String,
-    val email: String,
+    val name: String? = null,
+    val email: String? = null,
 ) {
     constructor(user: User) : this(
         id = user.id,
@@ -17,8 +17,8 @@ data class UserDTO(
 
     fun toUserCreationRequest(): UserCreationRequest {
         return UserCreationRequest(
-            name = this.name,
-            email = this.email
+            name = this.name!!,
+            email = this.email!!
         )
     }
 }
