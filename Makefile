@@ -11,6 +11,10 @@ _build: _clean
 .PHONY: build
 build: _clean _build
 
+.PHONY: run-locally
+run-locally: build
+	./mvnw spring-boot:run -f app/startup
+
 #########################################
 ### INFRA
 
