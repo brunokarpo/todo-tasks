@@ -26,3 +26,7 @@ _db-migrate:
 
 .PHONY: db-initialize
 db-initialize: _db-start _db-migrate
+
+.PHONY: db-stop
+db-stop:
+	$(MAKE) -C infra/db stop

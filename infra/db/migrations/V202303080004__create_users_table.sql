@@ -5,8 +5,8 @@ create table if not exists users_identifiers (
 
 -- Never create relationship between this table and any other.
 create table if not exists users_data (
-    id uuid unique,
+    id uuid unique not null,
     name text,
-    email text not null,
-    constraint fk_users_identifiers foreign key (id) references users_identifiers(id)
+    email text unique not null,
+    constraint fk_id_users_identifiers_id foreign key (id) references users_identifiers(id)
 );
