@@ -1,5 +1,6 @@
 package nom.brunokarpo.todotasks.app.api.security
 
+import nom.brunokarpo.todotasks.domain.service.PasswordEncoderProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
