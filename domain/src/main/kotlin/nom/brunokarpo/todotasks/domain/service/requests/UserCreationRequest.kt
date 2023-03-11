@@ -4,7 +4,8 @@ import nom.brunokarpo.todotasks.domain.model.User
 
 data class UserCreationRequest(
     val name: String,
-    val email: String
+    val email: String,
+    val password: String
 ) {
     fun toUser(): User {
         return User(
