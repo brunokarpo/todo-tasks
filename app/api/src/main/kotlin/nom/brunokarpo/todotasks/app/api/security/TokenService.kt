@@ -21,4 +21,11 @@ class TokenService {
             ).sign(Algorithm.HMAC512("muito-dificil-de-descobrir"))
     }
 
+    fun getSubject(token: String): String {
+        return JWT
+            .require(Algorithm.HMAC512("muito-dificil-de-descobrir"))
+            .withIssuer("TODO_TASKS")
+            .build().verify(token).subject
+    }
+
 }
