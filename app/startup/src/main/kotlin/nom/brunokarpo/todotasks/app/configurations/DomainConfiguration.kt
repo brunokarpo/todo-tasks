@@ -2,6 +2,7 @@ package nom.brunokarpo.todotasks.app.configurations
 
 import nom.brunokarpo.todotasks.domain.repository.TaskRepository
 import nom.brunokarpo.todotasks.domain.repository.UserRepository
+import nom.brunokarpo.todotasks.domain.service.PasswordEncoderProvider
 import nom.brunokarpo.todotasks.domain.service.TaskService
 import nom.brunokarpo.todotasks.domain.service.UserProvider
 import nom.brunokarpo.todotasks.domain.service.UserService
@@ -17,7 +18,9 @@ class DomainConfiguration {
     }
 
     @Bean
-    fun userService(userRepository: UserRepository): UserService {
-        return UserService(userRepository = userRepository)
+    fun userService(userRepository: UserRepository,
+                    passwordEncoderProvider: PasswordEncoderProvider): UserService {
+        return UserService(userRepository = userRepository,
+            passwordEncoderProvider = passwordEncoderProvider)
     }
 }
