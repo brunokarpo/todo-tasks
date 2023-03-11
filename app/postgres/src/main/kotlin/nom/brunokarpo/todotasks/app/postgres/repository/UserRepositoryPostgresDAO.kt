@@ -1,5 +1,6 @@
 package nom.brunokarpo.todotasks.app.postgres.repository
 
+import nom.brunokarpo.todotasks.app.postgres.repository.mappers.UserRowMapper
 import nom.brunokarpo.todotasks.domain.model.User
 import nom.brunokarpo.todotasks.domain.repository.UserRepository
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
@@ -29,32 +30,27 @@ class UserRepositoryPostgresDAO(
 
     private fun insertUserData(user: User) {
         val sqlData = """
-                insert into users_data (id, name, email)
-                values (:id, :name, :email)
+                insert into users_data (id, name, email, password)
+                values (:id, :name, :email, :password)
             """.trimIndent()
         val paramsData = mapOf(
             "id" to user.id,
             "name" to user.name,
-            "email" to user.email
+            "email" to user.email,
+            "password" to user.password,
         )
         jdbcTemplate.update(sqlData, paramsData)
     }
 
     override fun findByEmail(email: String): User? {
         val sql = """
-            select id, name, email
+            select id, name, email, password
             from users_data
             where email = :email
         """.trimIndent()
         val params = mapOf(
             "email" to email
         )
-        return jdbcTemplate.query(sql, params) {rs, _ ->
-            User(
-                id = UUID.fromString(rs.getString("id")),
-                name = rs.getString("name"),
-                email = rs.getString("email")
-            )
-        }.firstOrNull()
+        return jdbcTemplate.query(sql, params, UserRowMapper()).firstOrNull()
     }
 }

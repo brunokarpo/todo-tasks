@@ -30,6 +30,7 @@ class UserRepositoryIT: JdbcDatabaseIT() {
             assertEquals("f6863a3a-3da6-4c0f-96b1-2d86d12f47a9", this.id.toString())
             assertEquals("Bob", this.name)
             assertEquals("bob@example.com", this.email)
+            assertEquals("bobpassword", this.password)
         }
     }
 
@@ -44,7 +45,8 @@ class UserRepositoryIT: JdbcDatabaseIT() {
     fun `should insert new user`() {
         val user = User(
             name = "Gaspar",
-            email = "gaspar@example.com"
+            email = "gaspar@example.com",
+            password = "gasparpassword"
         )
 
         var result: User? = null
