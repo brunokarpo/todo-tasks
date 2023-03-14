@@ -8,17 +8,19 @@ data class UserDTO(
     val id: UUID? = null,
     val name: String? = null,
     val email: String? = null,
+    val password: String? = null
 ) {
     constructor(user: User) : this(
         id = user.id,
         name = user.name,
-        email = user.email
+        email = user.email,
     )
 
     fun toUserCreationRequest(): UserCreationRequest {
         return UserCreationRequest(
             name = this.name!!,
-            email = this.email!!
+            email = this.email!!,
+            password = this.password!!
         )
     }
 }
