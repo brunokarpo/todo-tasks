@@ -1,11 +1,16 @@
-package nom.brunokarpo.todotasks.app.api.security
+package nom.brunokarpo.todotasks.app.api.security.services
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import nom.brunokarpo.todotasks.app.api.dto.UserDetailsDTO
 import org.springframework.stereotype.Service
+import java.time.Duration
+import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneOffset
+import java.time.temporal.ChronoField
+import java.time.temporal.ChronoUnit
+import java.time.temporal.TemporalAmount
 
 @Service
 class TokenService {
@@ -15,9 +20,7 @@ class TokenService {
             .withSubject(user.username)
             .withClaim("id", user.username)
             .withExpiresAt(
-                LocalDateTime.now()
-                    .plusMinutes(10)
-                    .toInstant(ZoneOffset.UTC)
+                Instant.now().plus(Duration.ofMinutes(10))
             ).sign(Algorithm.HMAC512("muito-dificil-de-descobrir"))
     }
 

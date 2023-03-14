@@ -2,6 +2,7 @@
 POST http://localhost:8080/tasks
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlbGlzYUBleGFtcGxlLmNvbSIsImlzcyI6IlRPRE9fVEFTS1MiLCJpZCI6ImVsaXNhQGV4YW1wbGUuY29tIiwiZXhwIjoxNjc4NzY0MzI1fQ.Grf6H7itXDz8eEI7opipI96f7Sq0FoSE_xzNV1lm-Tm1b7Zg-pJmFetFje6WQv5dWCPUvZsQTQ-i_rz3YVi6IA
 
 {
   "title": "Simple task 1",
@@ -11,13 +12,15 @@ Accept: application/json
 }
 
 ### Filtering task. Could receive parameters id, title, description, and status
-GET http://localhost:8080/tasks?id=7999d08c-a517-4279-b233-d25a1e0b407c
+GET http://localhost:8080/tasks?id=6d405dcb-76c8-46a1-982b-089e43fa3591
 Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlbGlzYUBleGFtcGxlLmNvbSIsImlzcyI6IlRPRE9fVEFTS1MiLCJpZCI6ImVsaXNhQGV4YW1wbGUuY29tIiwiZXhwIjoxNjc4NzY0MzI1fQ.Grf6H7itXDz8eEI7opipI96f7Sq0FoSE_xzNV1lm-Tm1b7Zg-pJmFetFje6WQv5dWCPUvZsQTQ-i_rz3YVi6IA
 
 ### Update existent task
-PUT http://localhost:8080/tasks/7999d08c-a517-4279-b233-d25a1e0b407c
+PUT http://localhost:8080/tasks/6d405dcb-76c8-46a1-982b-089e43fa3591
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlbGlzYUBleGFtcGxlLmNvbSIsImlzcyI6IlRPRE9fVEFTS1MiLCJpZCI6ImVsaXNhQGV4YW1wbGUuY29tIiwiZXhwIjoxNjc4NzY0MzI1fQ.Grf6H7itXDz8eEI7opipI96f7Sq0FoSE_xzNV1lm-Tm1b7Zg-pJmFetFje6WQv5dWCPUvZsQTQ-i_rz3YVi6IA
 
 {
   "title": "Ler um capitulo do livro Hobbit",
@@ -27,4 +30,5 @@ Accept: application/json
 }
 
 ### Remove task
-DELETE http://localhost:8080/tasks/7999d08c-a517-4279-b233-d25a1e0b407c
+DELETE http://localhost:8080/tasks/6d405dcb-76c8-46a1-982b-089e43fa3591
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlbGlzYUBleGFtcGxlLmNvbSIsImlzcyI6IlRPRE9fVEFTS1MiLCJpZCI6ImVsaXNhQGV4YW1wbGUuY29tIiwiZXhwIjoxNjc4NzY0MzI1fQ.Grf6H7itXDz8eEI7opipI96f7Sq0FoSE_xzNV1lm-Tm1b7Zg-pJmFetFje6WQv5dWCPUvZsQTQ-i_rz3YVi6IA

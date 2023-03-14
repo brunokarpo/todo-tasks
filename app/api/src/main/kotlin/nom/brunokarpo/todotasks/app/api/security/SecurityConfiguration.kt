@@ -1,7 +1,5 @@
 package nom.brunokarpo.todotasks.app.api.security
 
-import nom.brunokarpo.todotasks.domain.service.PasswordEncoderProvider
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
@@ -25,8 +23,8 @@ class SecurityConfiguration {
             .csrf().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and().authorizeHttpRequests()
-            .requestMatchers(HttpMethod.POST, "/login").permitAll()
             .requestMatchers(HttpMethod.POST, "/users").permitAll()
+            .requestMatchers(HttpMethod.POST, "/login").permitAll()
             .anyRequest().authenticated()
             .and().addFilterBefore(filterToken, UsernamePasswordAuthenticationFilter::class.java)
             .build()

@@ -13,7 +13,7 @@ data class UserDetailsDTO(
     }
 
     override fun getPassword(): String {
-        TODO("Not yet implemented - Generate password")
+        return user.password!!
     }
 
     override fun getUsername(): String {

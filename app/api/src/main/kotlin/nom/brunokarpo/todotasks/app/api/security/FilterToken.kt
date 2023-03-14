@@ -3,6 +3,7 @@ package nom.brunokarpo.todotasks.app.api.security
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
+import nom.brunokarpo.todotasks.app.api.security.services.TokenService
 import nom.brunokarpo.todotasks.domain.service.UserService
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.authority.SimpleGrantedAuthority
@@ -23,7 +24,7 @@ class FilterToken(
     ) {
 
         request.getHeader("Authorization")
-            ?.removePrefix("Bearer ")
+            ?.replace("Bearer ", "")
             ?.let {
                 val subject = tokenService.getSubject(it)
                 val user = userService.findByEmail(subject)

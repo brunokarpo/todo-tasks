@@ -1,7 +1,9 @@
 package nom.brunokarpo.todotasks.app.api.endpoints
 
 import nom.brunokarpo.todotasks.app.api.dto.LoginDTO
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -10,5 +12,5 @@ import org.springframework.web.bind.annotation.RestController
 interface LoginApi {
 
     @PostMapping
-    fun login(login: LoginDTO): String
+    fun login(@RequestBody login: LoginDTO): ResponseEntity<String>
 }

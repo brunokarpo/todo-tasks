@@ -1,4 +1,4 @@
-package nom.brunokarpo.todotasks.app.api.security
+package nom.brunokarpo.todotasks.app.api.security.services
 
 import nom.brunokarpo.todotasks.domain.model.User
 import nom.brunokarpo.todotasks.domain.service.UserProvider

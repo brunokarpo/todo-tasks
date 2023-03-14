@@ -1,4 +1,4 @@
-package nom.brunokarpo.todotasks.app.api.security
+package nom.brunokarpo.todotasks.app.api.security.services
 
 import nom.brunokarpo.todotasks.domain.service.PasswordEncoderProvider
 import org.springframework.security.crypto.password.PasswordEncoder
